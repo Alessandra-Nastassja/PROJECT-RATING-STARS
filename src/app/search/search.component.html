@@ -1,0 +1,23 @@
+<div class="content-question">
+    <div class="question" *ngFor="let question of questions; let i = index">
+        <div *ngIf="i === nextQuestion">
+            <form [formGroup]="quiz" (ngSubmit)="setQuiz()">
+                <div class="question--title">
+                    <p [innerText]="questions[currentQuestion-1] ? questions[currentQuestion-1].question: question.question"></p>
+                </div>
+                <div class="estrelas">
+                    <label for="answer1"><i class="fa"></i></label>
+                    <input type="radio" id="answer1" formControlName="answer" value="1" />
+
+                    <label for="answer2"><i class="fa"></i></label>
+                    <input type="radio" id="answer2" formControlName="answer" value="2" />
+
+                    <label for="answer3"><i class="fa"></i></label>
+                    <input type="radio" id="answer3" formControlName="answer" value="3" />
+                </div>
+                <br>
+                <button>Enviar resposta</button>
+            </form>
+        </div>
+    </div>
+</div>
